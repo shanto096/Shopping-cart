@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body  class= "bg-emerald-50 ">
+    <div">
+      <h1 class=" text-center text-4xl font-bold mt-8 text-zinc-600">Shopping Cart</h1>
+        <div class="grid grid-rows-3 w-7/12 ml-72 mt-8 gap-5  ">
+          <div class="grid grid-cols-7 bg-white rounded-xl ">
+                <img src="./Apple-iPhone-14-Pro-iPhone-14-Pro-Max-deep-purple-220907_inline.jpg.large (1).jpg" class="w-20 ml-10 mt-3 rounded-md" alt="">
+                <h1 class="mt-14 text-lg ml-4">iPhone 14 Pro</h1>
+                <button id="btn-1" class="w-10  bg-red-400  font-bold text-lg my-14  rounded-2xl ml-64">-</button>
+                <p id="result-1" class="text-center w-10  bg-red-400  font-bold text-lg my-14 rounded-2xl ml-44 text-gray-800 ">1</p>
+                <button id="btn-2" class=" bg-red-400 w-10 font-bold text-lg my-14  rounded-2xl ml-24">+</button>
+                <h5 class="mt-14 ml-10 font-bold text-xl">$ <span id="price1">1000</span></h5>
+                <h2 class="mt-[3.5rem] ml-12 text-2xl font-bold text-red-500">X</h2>
+            
+          </div>
+          <div class="grid grid-cols-7 bg-white rounded-xl mt">
+            <img src="./download.jpg" class="w-20 ml-10 mt-3 rounded-md" alt="">
+            <h1 class="mt-14 text-lg ml-4">iPhone 13 Pro</h1>
+            <button id="2btn-1" class="w-10  bg-red-400  font-bold text-lg my-14  rounded-2xl ml-64">-</button>
+            <p id="result-2" class="text-center w-10  bg-red-400  font-bold text-lg my-14 rounded-2xl ml-44 text-gray-800 ">1</p>
+            <button id="2btn-2" class=" bg-red-400 w-10 font-bold text-lg my-14  rounded-2xl ml-24">+</button>
+            <h5 class="mt-14 ml-10 font-bold text-xl">$ <span id="price2">2000</span></h5>
+            <h2 class="mt-[3.5rem] ml-12 text-2xl font-bold text-red-500">X</h2>
+        
+      </div>
+          <div class="grid grid-rows-3  bg-white rounded-xl h-32  ">
+             <div class="grid grid-cols-2 ml-14 mt-2 ">
+              <h1 class="font-bold text-lg">Subtotal</h1>
+              <h2 class="ml-64 font-bold text-lg text-green-600">$ <span id="subtotal">3000<span></h2>
+             </div>
+             <div class="grid grid-cols-2 ml-14 mt-2">
+              <h1 class="font-bold text-lg">Tax</h1>
+              <h2 class="ml-64 font-bold text-lg text-red-600">$ <span id="tax">300</span></h2>
+             </div>
+             <div class="grid grid-cols-2 ml-14 mt-2">
+              <h1 class="font-bold text-lg">Total</h1>
+              <h2 class="ml-64 font-bold text-lg text-green-600">$ <span id="total">3300</span></h2>
+             </div>
+          </div>
+        </div>
+        <button class="bg-green-600 btn ml-[64rem] px-8 py-2 font-bold text-white text-xl rounded-md mt-3">Check Out</button>
+    </div>
+
+
+    <!-- <script>
+       const btn1 = document.getElementById("btn-1");
+       const btn2 = document.getElementById("btn-2");
+       const result1 = document.getElementById("result-1");
+      
+       const price1=document.getElementById('price1')
+       const subtotal = document.getElementById("subtotal")
+       const tax = document.getElementById("tax")
+       const total = document.getElementById("total") 
+
+
+
+       const result2 = document.getElementById("result-2");
+      const tbtn1 = document.getElementById("2btn-1");
+       const tbtn2 = document.getElementById("2btn-2");
+       const price2=document.getElementById('price2')
+
+    
+
+
+
+
+       btn2.addEventListener('click',function () {
+        let  fresult = parseFloat(result1.innerText)
+        fresult ++;
+        
+         result1.innerText =fresult;
+         
+         price1.innerText=parseFloat(price1.innerText)+100 ;
+          subtotal.innerText = parseFloat(price1.innerText) + parseFloat(price2.innerText);
+          tax.innerText = (parseFloat(subtotal.innerText)*10)/100;
+          total.innerText = parseFloat(subtotal.innerText) + parseFloat(tax.innerText);
+         
+
+
+       })
+       btn1.addEventListener('click',function () {
+        let  fresult =parseFloat(result1.innerText)
+        fresult --;
+         result1.innerText =fresult;
+        
+         price1.innerText=parseFloat(price1.innerText)-100;
+         subtotal.innerText = parseFloat(price1.innerText) + parseFloat(price2.innerText);
+         tax.innerText = (parseFloat(subtotal.innerText)*10)/100;
+         total.innerText = parseFloat(subtotal.innerText) + parseFloat(tax.innerText);
+
+       })
+
+     
+
+       tbtn2.addEventListener('click',function () {
+        let finalresult = parseFloat(result2.innerText)
+        finalresult ++;
+        result2.innerText =finalresult;
+        price2.innerText = parseFloat(price2.innerText) +100;
+        subtotal.innerText = parseFloat(price1.innerText) + parseFloat(price2.innerText);
+        tax.innerText = (parseFloat(subtotal.innerText)*10)/100;
+          total.innerText = parseFloat(subtotal.innerText) + parseFloat(tax.innerText);
+       })
+       tbtn1.addEventListener('click',function () {
+        let finalresult = parseFloat(result2.innerText)
+        finalresult --;
+        result2.innerText =finalresult;
+        price2.innerText = parseFloat(price2.innerText) -100;
+        subtotal.innerText = parseFloat(price1.innerText) + parseFloat(price2.innerText);
+        tax.innerText = (parseFloat(subtotal.innerText)*10)/100;
+          total.innerText = parseFloat(subtotal.innerText) + parseFloat(tax.innerText);
+       })
+
+    </script>
+     -->
+     <script src="/script.js"></script>
+</body>
+</html>
